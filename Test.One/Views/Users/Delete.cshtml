@@ -1,0 +1,83 @@
+﻿@model Users
+
+@await Html.PartialAsync("_ValidationMessage")
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-md-12">
+            <div class="card shadow-lg">
+                <div class="card-header bg-primary text-white text-center">
+                    <h4 class="mb-0">Delete User Form</h4>
+                </div>
+                <div class="card-body">
+                    <form asp-action="DeletePost" asp-controller="Users" method="post">
+
+                        <input asp-for="UserId" type="hidden" />
+                        <!-- Username -->
+                        <div class="form-group">
+                            <label asp-for="Username" class="form-label"></label>
+                            <input asp-for="Username" class="form-control" disabled />
+                            <span asp-validation-for="Username" class="text-danger"></span>
+                        </div>
+
+                        <!-- Password and Confirm Password -->
+                        <!-- Email -->
+                        <div class="form-group">
+                            <label asp-for="Email" class="form-label"></label>
+                            <input asp-for="Email" class="form-control" type="email" disabled />
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+
+                        <!-- First Name and Last Name -->
+                        <div class="row mt-2">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label asp-for="FirstName" class="form-label">First Name</label>
+                                    <input asp-for="FirstName" class="form-control" disabled />
+                                    <span asp-validation-for="FirstName" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label asp-for="LastName" class="form-label">Last Name</label>
+                                    <input asp-for="LastName" class="form-control" disabled />
+                                    <span asp-validation-for="LastName" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Status -->
+                        <div class="form-group">
+                            <label asp-for="IsActive" class="form-label">Status</label>
+                            <div>
+                                <div class="form-check form-check-inline">
+                                    <input asp-for="IsActive" class="form-check-input" disabled type="radio" value="1" id="isActiveTrue">
+                                    <label class="form-check-label" for="isActiveTrue">Active</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input asp-for="IsActive" class="form-check-input" disabled type="radio" value="0" id="isActiveFalse">
+                                    <label class="form-check-label" for="isActiveFalse">Inactive</label>
+                                </div>
+                            </div>
+                            <span asp-validation-for="IsActive" class="text-danger"></span>
+                        </div>
+
+                        <!-- Buttons -->
+                        <div class="text-center mt-4">
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                            <a asp-action="Index" asp-controller="Users" class="btn btn-secondary">Cancel</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+
